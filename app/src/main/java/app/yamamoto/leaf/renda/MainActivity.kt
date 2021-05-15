@@ -1,6 +1,7 @@
 package app.yamamoto.leaf.renda
 
 import android.content.IntentSender
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.CountDownTimer
@@ -11,10 +12,11 @@ class MainActivity : AppCompatActivity() {
     var second:Int = 10
     var tapCount = 0
 
-    val timer: CountDownTimer = object : CountDownTimer(10000, 10000){
+    val timer: CountDownTimer = object : CountDownTimer(10000, 1000){
 
         override fun onFinish() {
             startButton.isVisible = true
+            tapButton.setBackgroundColor(Color.rgb(150,150,150))
             tapButton.setBackgroundResource(R.drawable.background_rounded_circle_glay)
             second = 10
             secondText.text = second.toString()
@@ -39,6 +41,8 @@ class MainActivity : AppCompatActivity() {
             startButton.isVisible = false
             timer.start()
             tapButton.setBackgroundResource(R.drawable.background_rounded_circle)
+
+
 
 
         }
